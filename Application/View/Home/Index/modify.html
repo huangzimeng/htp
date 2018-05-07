@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>修改个人资料  </title>
+
+    <!-- Bootstrap -->
+    <link href="./Public/Admin/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="./Public/Admin/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="./Public/Admin/nprogress/nprogress.css" rel="stylesheet">
+    <!-- bootstrap-progressbar -->
+    <link href="./Public/Admin/vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
+    <!-- bootstrap-daterangepicker -->
+    <link href="./Public/Admin/vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+    
+    <!-- Custom Theme Style -->
+    <link href="./Public/Admin/build/css/custom.min.css" rel="stylesheet">
+  </head>
+
+  <body class="nav-md">
+  <br>
+  <p style="text-align: center;font-size: 30px">修改个人资料</p>
+  <div class="x_content">
+
+    <!--修改表单-->
+
+    <form class="form-horizontal form-label-left" novalidate="" action="" method="post" enctype="multipart/form-data">\
+      <input type="hidden" name="user_id" value="<?=$user_id?>">
+      <div class="item form-group">
+        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">姓名 <span class="required">*</span>
+        </label>
+        <div class="col-md-6 col-sm-6 col-xs-12">
+          <input value="<?=$username?>" id="username" class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="2" name="username"  required="required" type="text">
+        </div>
+      </div>
+      <div class="item form-group">
+        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="number">电话号码 <span class="required">*</span>
+        </label>
+        <div class="col-md-6 col-sm-6 col-xs-12">
+          <input value="<?=$telephone?>" type="number" id="number" name="telephone" required="required" data-validate-minmax="10,100" class="form-control col-md-7 col-xs-12">
+        </div>
+      </div>
+      <div class="item form-group">
+        <label for="password" class="control-label col-md-3">旧密码</label>
+        <div class="col-md-6 col-sm-6 col-xs-12">
+          <input id="" type="password" name="oldpwd" data-validate-length="6,8" class="form-control col-md-7 col-xs-12" required="required">
+        </div>
+      </div>
+      <div class="item form-group">
+        <label for="password" class="control-label col-md-3">新密码</label>
+        <div class="col-md-6 col-sm-6 col-xs-12">
+          <input id="password" type="password" name="password" data-validate-length="6,8" class="form-control col-md-7 col-xs-12" required="required">
+        </div>
+      </div>
+      <div class="item form-group">
+        <label for="password2" class="control-label col-md-3 col-sm-3 col-xs-12"> 确认密码</label>
+        <div class="col-md-6 col-sm-6 col-xs-12">
+          <input id="password2" type="password" name="repwd" data-validate-linked="password" class="form-control col-md-7 col-xs-12" required="required">
+        </div>
+      </div>
+      <div class="item form-group">
+        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="">性别 <span class="required">*</span>
+        </label>
+        <div class="col-md-6 col-sm-6 col-xs-12">
+          <label><input type="radio" name="sex" id="" value="0" <?=$sex==0?'checked':''?>>男</label>
+          <label><input type="radio" name="sex" id="" value="1" <?=$sex==1?'checked':''?>>女</label>
+        </div>
+      </div>
+      <div class="item form-group">
+        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="">头像 <span class="required">*</span>
+        </label>
+        <div class="col-md-6 col-sm-6 col-xs-12">
+          <img src="<?=$photo?>" alt="图片加载失败">
+        </div>
+      </div>
+      <div class="item form-group">
+        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="">修改头像 <span class="required">*</span>
+        </label>
+        <div class="col-md-6 col-sm-6 col-xs-12">
+          <input type="file" name="photo">
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-md-6 col-md-offset-3">
+          <button id="send" type="submit" class="btn btn-success">Submit</button>
+        </div>
+      </div>
+    </form>
+
+  </div>
+
+    <!-- jQuery -->
+    <script src="./Public/Admin/vendors/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="./Public/Admin/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- FastClick -->
+    <script src="./Public/Admin/vendors/fastclick/lib/fastclick.js"></script>
+    <!-- NProgress -->
+    <script src="./Public/Admin/vendors/nprogress/nprogress.js"></script>
+    <!-- Chart.js -->
+    <script src="./Public/Admin/vendors/Chart.js/dist/Chart.min.js"></script>
+    <!-- jQuery Sparklines -->
+    <script src="./Public/Admin/vendors/jquery-sparkline/dist/jquery.sparkline.min.js"></script>
+    <!-- morris.js -->
+    <script src="./Public/Admin/vendors/raphael/raphael.min.js"></script>
+    <script src="./Public/Admin/vendors/morris.js/morris.min.js"></script>
+    <!-- gauge.js -->
+    <script src="./Public/Admin/vendors/gauge.js/dist/gauge.min.js"></script>
+    <!-- bootstrap-progressbar -->
+    <script src="./Public/Admin/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+    <!-- Skycons -->
+    <script src="./Public/Admin/vendors/skycons/skycons.js"></script>
+    <!-- Flot -->
+    <script src="./Public/Admin/vendors/Flot/jquery.flot.js"></script>
+    <script src="./Public/Admin/vendors/Flot/jquery.flot.pie.js"></script>
+    <script src="./Public/Admin/vendors/Flot/jquery.flot.time.js"></script>
+    <script src="./Public/Admin/vendors/Flot/jquery.flot.stack.js"></script>
+    <script src="./Public/Admin/vendors/Flot/jquery.flot.resize.js"></script>
+    <!-- Flot plugins -->
+    <script src="./Public/Admin/vendors/flot.orderbars/js/jquery.flot.orderBars.js"></script>
+    <script src="./Public/Admin/vendors/flot-spline/js/jquery.flot.spline.min.js"></script>
+    <script src="./Public/Admin/vendors/flot.curvedlines/curvedLines.js"></script>
+    <!-- DateJS -->
+    <script src="./Public/Admin/vendors/DateJS/build/date.js"></script>
+    <!-- bootstrap-daterangepicker -->
+    <script src="./Public/Admin/vendors/moment/min/moment.min.js"></script>
+    <script src="./Public/Admin/vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
+
+    <!-- Custom Theme Scripts -->
+    <script src="./Public/Admin/build/js/custom.min.js"></script>
+
+  </body>
+</html>

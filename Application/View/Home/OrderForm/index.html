@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>我的订单  </title>
+
+    <!-- Bootstrap -->
+    <link href="./Public/Admin/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="./Public/Admin/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="./Public/Admin/nprogress/nprogress.css" rel="stylesheet">
+    <!-- bootstrap-progressbar -->
+    <link href="./Public/Admin/vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
+    <!-- bootstrap-daterangepicker -->
+    <link href="./Public/Admin/vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+    
+    <!-- Custom Theme Style -->
+    <link href="./Public/Admin/build/css/custom.min.css" rel="stylesheet">
+  </head>
+
+  <body class="nav-md" style="background-color: #ffffff">
+
+  <div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+      <div class="x_panel">
+        <div class="x_title">
+          <h2>我的订单 <small>Users</small></h2>
+          <ul class="nav navbar-right panel_toolbox">
+            <li><a href="index.php?p=Home&c=Index&a=index" class="btn btn-info btn-sm">返回<i class="fa fa-close"></i></a>
+            </li>
+          </ul>
+          <div class="clearfix"></div>
+        </div>
+        <div class="x_content">
+          <p class="text-muted font-13 m-b-30">
+
+          <div class="title_right">
+            <form action="index.php?p=Home&c=OrderForm&a=index" method="post">
+              <div class="col-md-2 col-sm-2 col-xs-12 form-group pull-left top_search">
+                <div class="input-group">
+                  <input type="text" class="form-control" placeholder="Search for..." name="keyword">
+                    <span class="input-group-btn">
+                      <input class="btn btn-round btn-default" type="submit" value="Go!">
+                    </span>
+                </div>
+              </div>
+            </form>
+          </div>
+
+
+          <table id="datatable" class="table table-striped jambo_table bulk_action">
+            <thead>
+
+            <tr>
+              <th>ID</th>
+              <th>订单号</th>
+              <th>下单时间</th>
+              <th>状态</th>
+              <th>操作</th>
+            </tr>
+
+            </thead>
+
+            <tbody>
+<?php foreach($orderformList as $v):?>
+            <tr>
+              <td><?=$v['order_form_id']?></td>
+              <td><?=$v['number']?></td>
+              <td><?=$v['time']==0?'N/A':date('Y-m-d H:i:s',$v['time'])?></td>
+              <td>
+                <?php if($v['status']==0):?>
+                正在处理
+                <?php elseif($v['status']==1):?>
+                已发货
+                <?php elseif($v['status']==2):?>
+                已取消
+                <?php endif;?>
+              </td>
+              <td>
+                <a href="index.php?p=Home&c=OrderForm&a=view&id=<?=$v['order_form_id']?>" class="btn btn-default btn-xs">查看</a>
+                <a href="index.php?p=Home&c=OrderForm&a=cancel&id=<?=$v['order_form_id']?>" class="btn btn-default btn-xs">取消</a>
+                <!--<a href="index.php?p=Home&c=OrderForm&a=delete&id=<?=$v['order_form_id']?>" class="btn btn-default btn-xs">删除</a>-->
+              </td>
+            </tr>
+<?php endforeach;?>
+
+            </tbody>
+          </table>
+        </div>
+        <?=$pageHtml?>
+      </div>
+    </div>
+  </div>
+    <!-- jQuery -->
+    <script src="./Public/Admin/vendors/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="./Public/Admin/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- FastClick -->
+    <script src="./Public/Admin/vendors/fastclick/lib/fastclick.js"></script>
+    <!-- NProgress -->
+    <script src="./Public/Admin/vendors/nprogress/nprogress.js"></script>
+    <!-- Chart.js -->
+    <script src="./Public/Admin/vendors/Chart.js/dist/Chart.min.js"></script>
+    <!-- jQuery Sparklines -->
+    <script src="./Public/Admin/vendors/jquery-sparkline/dist/jquery.sparkline.min.js"></script>
+    <!-- morris.js -->
+    <script src="./Public/Admin/vendors/raphael/raphael.min.js"></script>
+    <script src="./Public/Admin/vendors/morris.js/morris.min.js"></script>
+    <!-- gauge.js -->
+    <script src="./Public/Admin/vendors/gauge.js/dist/gauge.min.js"></script>
+    <!-- bootstrap-progressbar -->
+    <script src="./Public/Admin/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+    <!-- Skycons -->
+    <script src="./Public/Admin/vendors/skycons/skycons.js"></script>
+    <!-- Flot -->
+    <script src="./Public/Admin/vendors/Flot/jquery.flot.js"></script>
+    <script src="./Public/Admin/vendors/Flot/jquery.flot.pie.js"></script>
+    <script src="./Public/Admin/vendors/Flot/jquery.flot.time.js"></script>
+    <script src="./Public/Admin/vendors/Flot/jquery.flot.stack.js"></script>
+    <script src="./Public/Admin/vendors/Flot/jquery.flot.resize.js"></script>
+    <!-- Flot plugins -->
+    <script src="./Public/Admin/vendors/flot.orderbars/js/jquery.flot.orderBars.js"></script>
+    <script src="./Public/Admin/vendors/flot-spline/js/jquery.flot.spline.min.js"></script>
+    <script src="./Public/Admin/vendors/flot.curvedlines/curvedLines.js"></script>
+    <!-- DateJS -->
+    <script src="./Public/Admin/vendors/DateJS/build/date.js"></script>
+    <!-- bootstrap-daterangepicker -->
+    <script src="./Public/Admin/vendors/moment/min/moment.min.js"></script>
+    <script src="./Public/Admin/vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
+
+    <!-- Custom Theme Scripts -->
+    <script src="./Public/Admin/build/js/custom.min.js"></script>
+
+  </body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<ul>
+
+    <?php foreach($list as $k=>$v):?>
+
+        <?php foreach($v as$val):?>
+            <li>第<?=$k?>名:<?=$val?></li>
+        <?php endforeach;?>
+
+    <?php endforeach;?>
+
+</ul>
+
+
+
+</body>
+</html>

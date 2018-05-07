@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Home</title>
+<!-- custom-theme -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+		function hideURLbar(){ window.scrollTo(0,1); } </script>
+
+<!-- Portfolio-CSS -->	<link rel="stylesheet" href="./Public/Home/SY/css/swipebox.css" type="text/css" media="all">
+		
+<link href="./Public/Home/SY/css/aos.css" rel="stylesheet" type="text/css" media="all" /><!-- //animation effects-css-->
+
+<link rel="stylesheet" href="./Public/Home/SY/css/index.css"><!-- skills bars CSS-->
+
+<!-- custom-theme -->
+<link href="./Public/Home/SY/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+<link href="./Public/Home/SY/css/style.css" rel="stylesheet" type="text/css" media="all" />
+<!-- //custom-theme -->
+	  
+<!-- font-awesome-icons -->
+<link href="./Public/Home/SY/css/font-awesome.css" rel="stylesheet">
+<!-- //font-awesome-icons -->
+
+<!-- googlefonts -->
+<link href="http://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&amp;subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese" rel="stylesheet">
+<link href="http://fonts.googleapis.com/css?family=Cairo:200,300,400,600,700,900&amp;subset=arabic,latin-ext" rel="stylesheet">
+<!-- //googlefonts -->
+
+</head>
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+<!-- banner -->
+<div class="banner" id="home">
+	<div class="agileinfo-dot">
+		<div class="container">
+		<!-- header -->
+		<div class="header-w3layouts"> 
+			<!-- Navigation -->
+			<nav class="navbar navbar-default navbar-fixed-top"> 
+					<div class="navbar-header page-scroll">
+						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+							<span class="sr-only">Haircut</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+						<h1><a class="navbar-brand" href="">Haircut</a></h1>
+					</div>
+					<!-- Collect the nav links, forms, and other content for toggling -->
+					<div class="collapse navbar-collapse navbar-ex1-collapse">
+						<ul class="nav navbar-nav navbar-right cl-effect-15">
+							<!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+							<li class="hidden"><a class="page-scroll" href="#page-top"></a>	</li>
+							<li><a class="page-scroll scroll" href="#home">首页</a></li>
+							<li><a class="page-scroll scroll" href="#about">排行榜</a></li>
+							<li><a class="page-scroll scroll" href="#skills">预约</a></li>
+							<li><a class="page-scroll scroll" href="#education">积分商城</a></li>
+
+							<?php if(empty($_SESSION['USER_INFO'])):?>
+							<li><a class="page-scroll scroll" href="index.php?p=Home&c=Register&a=index">登录和注册</a></li>
+							<?php else:?>
+							<li><a class="page-scroll scroll" href="index.php?p=Home&c=Index&a=modify">欢迎!<?=$username?></a></li>
+							<li><a class="page-scroll scroll" href="index.php?p=Home&c=Login&a=out">退出</a></li>
+							<?php endif;?>
+
+						</ul>
+					</div>
+					<!-- /.navbar-collapse -->
+				<!-- /.container -->
+			</nav>  
+		</div>	
+		<!-- //header -->
+
+			<div class="w3_banner_info">
+				<div class="w3_banner_info_grid">
+					<h2 data-aos="fade-right">Hi, iam </h2>
+					<h2 data-aos="fade-right">Phillips Smith.</h2>
+					<h5>UI/UX Designer.</h5>
+					<p>Aenean congue vitae mauris sed tristique. Mauris quis nulla at sapien blandit.
+							Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit.</p>
+					<ul data-aos="slide-up">
+
+						<!--活动列表-->
+						<li><a href="#" class="w3ls_more" data-toggle="modal" data-target="#myModal">最新活动</a></li>
+						<!--活动列表-->
+
+						<!--<li><a href="#" class="scroll w3l_contact"><i class="fa fa-download" aria-hidden="true"></i> Download CV</a></li>-->
+					</ul>
+				</div>
+			</div>
+			<div class="thim-click-to-bottom">
+				<a href="#about" class="scroll">
+					<i class="fa fa-arrows-v" aria-hidden="true"></i>
+				</a>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- banner -->
+
+<!--活动详情-->
+	<div class="modal about-modal fade" id="myModal" tabindex="-1" role="dialog">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header"> 
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>						
+						<h4 class="modal-title">活动列表</h4>
+				</div> 
+				<div class="modal-body">
+					<div class="modalpad"> 
+						<!--<div class="modalpop ">-->
+							<!--<img src="./Public/Home/SY/images/1.jpeg" class="img-responsive" alt=""/>-->
+						<!--</div>-->
+						<div class="about-modal wthree">
+							<h3> <span>最新活动</span></h3>
+							<!--<h4>UI/UX Designer</h4>-->
+							<ul class="address">
+
+
+
+
+							<table >
+								<tr>
+									<td><b>活动标题</b></td>
+									<td>活动简介</td>
+								</tr>
+							<?php foreach($activityList as $v):?>
+
+								<tr>
+									<td width="130px" height="30px"><b><a href="index.php?p=Home&c=Activity&a=index&id=<?=$v['activity_id']?>" target="_blank"><?=$v['title']?></a></b></td>
+									<td><?=$v['intro']?></td>
+								</tr>
+
+							<?php endforeach;?>
+							</table>
+							</ul>
+
+						</div> 
+						<div class="clearfix"> </div>
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
+<!--活动详情-->
+
+
+<!-- 排行榜 -->
+<div class="about" id="about" style="padding-bottom: 0">
+	<div class="about-left">
+	<h3 data-aos="zoom-in">排行榜</h3>
+	</div>
+	<div class="col-md-6 about-left">
+
+		<div class="boxw3-agile" style="padding-left: 100px">
+			<h4 data-aos="zoom-in">消费排行榜</h4>
+			<p class="p1">
+			<ul data-aos="zoom-in" style="list-style: none" class="img-responsive">
+				<?php foreach($list3 as $k=>$v):?>
+				<?php foreach($v as$val):?>
+				<li>第<?=$k+1?>名:<?=$val?></li>
+				<?php endforeach;?>
+				<?php endforeach;?>
+			</ul>
+			</p>
+		</div>
+
+		<div class="boxw3-agile" style="padding-left: 100px">
+			<h4 data-aos="zoom-in" >充值排行榜</h4>
+			<p class="p1">
+			<ul data-aos="zoom-in" style="list-style: none" class="img-responsive">
+				<?php foreach($list2 as $k=>$v):?>
+				<?php foreach($v as$val):?>
+				<li>第<?=$k+1?>名:<?=$val?></li>
+				<?php endforeach;?>
+				<?php endforeach;?>
+			</ul>
+			</p>
+		</div>
+
+		<div class="boxw3-agile" style="padding-left: 100px">
+			<h4 data-aos="zoom-in" >服务之星</h4>
+			<p class="p1">
+			<ul data-aos="zoom-in" style="list-style: none" class="img-responsive">
+				<?php foreach($list1 as $k=>$v):?>
+				<?php foreach($v as$val):?>
+				<li>第<?=$k+1?>名:<?=$val?></li>
+				<?php endforeach;?>
+				<?php endforeach;?>
+			</ul>
+			</p>
+		</div>
+
+
+</div>
+	<div class="col-md-6 skill-grids-right">
+
+		<!-- Skills -->
+		<div class="skillbar clearfix " data-percent="80%">
+			<div class="skillbar-title" style="background: #ff4f81;"><span>短发</span></div>
+			<div class="skillbar-bar" style="background: #ff4f81;"></div>
+			<div class="skill-bar-percent">80%</div>
+		</div> <!-- End Skill Bar -->
+
+		<div class="skillbar clearfix " data-percent="75%">
+			<div class="skillbar-title" style="background: #ff9900;"><span>复古风</span></div>
+			<div class="skillbar-bar" style="background: #ff9900;"></div>
+			<div class="skill-bar-percent">75%</div>
+		</div> <!-- End Skill Bar -->
+
+		<div class="skillbar clearfix " data-percent="60%">
+			<div class="skillbar-title" style="background: #8e43e7;"><span>韩式风格</span></div>
+			<div class="skillbar-bar" style="background: #8e43e7;"></div>
+			<div class="skill-bar-percent">60%</div>
+		</div> <!-- End Skill Bar -->
+
+		<div class="skillbar clearfix " data-percent="40%">
+			<div class="skillbar-title" style="background: #146eb4;"><span>PHP</span></div>
+			<div class="skillbar-bar" style="background: #146eb4;"></div>
+			<div class="skill-bar-percent">40%</div>
+		</div> <!-- End Skill Bar -->
+
+		<!--<div class="skillbar clearfix " data-percent="75%">-->
+			<!--<div class="skillbar-title" style="background: #11b563;"><span>Wordpress</span></div>-->
+			<!--<div class="skillbar-bar" style="background: #11b563;"></div>-->
+			<!--<div class="skill-bar-percent">75%</div>-->
+		<!--</div> &lt;!&ndash; End Skill Bar &ndash;&gt;-->
+
+		<p class="p1">Etiam sit amet porttitor nulla. Nullam tincidunt lectus vel euismodpulvi nar.
+			Aenean a facilisis augue, at convallis lacus. Interdum et malesuada fames ac ante
+			ipsum primis in faucibus. Praesent faucibus massa elit, vitae ultrices libero dapibus nec.
+			Maecenas cursus rutrum odio ut convallis.</p>
+		<!-- //Skills -->
+	</div>
+
+	<div class="clearfix"></div>
+</div>
+<!-- //排行榜 -->
+
+<!-- 预约活动 -->
+<div class="skills" id="skills">
+	<div class="about-left">
+		<h3 data-aos="zoom-in">预约</h3>
+		<div class="x_panel">
+
+<!--预约表单-->
+
+				<form class="" action="index.php?p=Home&c=Order&a=add" method="post">
+					<!--预约人-->
+					<div class="col-md-3 col-sm-3 col-xs-12 ">
+						预约人
+						<input name="realname" type="text" placeholder="Real Name" class="form-control">
+					</div>
+
+					<!--预约电话-->
+					<div class="col-md-3 col-sm-3 col-xs-12 ">
+						预约电话
+						<input name="phone" type="text" class="form-control" placeholder="Phone">
+
+					</div>
+
+					<!--预约美发师-->
+						<div class="col-md-3 col-sm-3 col-xs-12 form-group has-feedback">
+							美发师
+							<select name="barber" class="form-control">
+								<?php foreach($barber as $v):?>
+								<option value="<?=$v['member_id']?>"><?=$v['username']?></option>
+								<?php endforeach;?>
+							</select>
+						</div>
+
+
+					<!--预约套餐-->
+
+						<div class="col-md-3 col-sm-3 col-xs-12 form-group has-feedback">
+							套餐
+							<select name="plans" class="form-control">
+								<?php foreach($plans as $v):?>
+								<option value="<?=$v['plan_id']?>"><?=$v['name']?></option>
+								<?php endforeach;?>
+							</select>
+						</div>
+
+					<!--预约日期-->
+
+						<div class="col-md-3 col-sm-3 col-xs-12 form-group has-feedback">
+							预约日期
+							<input name="date" class="date-picker form-control col-md-7 col-xs-12" required="required" type="date">
+						</div>
+
+					<!--预约备注-->
+						<div class="col-md-3 col-sm-3 col-xs-12 form-group has-feedback">
+							备注
+							<textarea name="content" class="date-picker form-control col-md-7 col-xs-12" required="required">
+
+							</textarea>
+						</div>
+
+
+					<!--提交按钮-->
+					<div class="col-md-3 col-sm-3 col-xs-12 form-group has-feedback">
+							<button class="btn btn-primary" type="reset">重置</button>
+							<button type="submit" class="btn btn-success">提交</button>
+						</div>
+
+
+				</form>
+		</div>
+	</div>
+</div>
+<!-- //预约活动 -->
+
+<div class="clearfix"></div>
+
+<!-- /education  积分商城 -->
+ <div class="education" id="education">
+	 <div class="about-left">
+		 <h3 data-aos="zoom-in">积分商城 </h3>
+	 </div>
+	    <div class="col-md-5 education-w3l" style="padding-left:85px">
+
+
+			<?php if(!empty($_SESSION['USER_INFO'])):?>
+
+				<strong class="content-current">剩余积分:<?=$number??0?></strong>
+				<p>
+					  <a href="index.php?p=Home&c=OrderForm&a=indexhome&id=<?=$_SESSION['USER_INFO']['user_id']?>">我的订单</a>
+				</p>
+				<div class="clearfix"> </div>
+
+			<?php endif;?>
+
+				  <?php foreach($shopList as $v):?>
+				  <div class="education-agile-w3l">
+				     <div class="education-agile-w3l-year">
+						 <img src="<?=$v['photo']?>" alt="">
+				     </div>
+					 <div class="education-agile-w3l-info">
+					     <h4><b><?=$v['shop_name']?></b></h4>
+						 <p><?=$v['intro']?></p>
+						 <ul style="list-style: none">
+							 <li><b>所需积分</b>:<?=$v['money']?></li>
+							 <li><b>库存</b>:<?=$v['num']?></li>
+						 </ul>
+
+						 <form action="index.php?p=Home&c=Shop&a=buy" method="post">
+
+							<input type="hidden" name="shop_id" value="<?=$v['shop_id']?>">
+							兑换数量:<input type="number" name="number" value="1" class="col-md-3 col-sm-12 col-xs-12 form-group">
+							<input type="submit" value="点击兑换" class="btn btn-round btn-success">
+
+						 </form>
+				     </div>
+				      <div class="clearfix"></div>
+				  </div>
+				  <?php endforeach;?>
+
+			<form action="index.php?p=Home&c=Index&a=index" method="post">
+				<div class="col-md-5 col-sm-5 col-xs-12 form-group">
+					商品搜索
+					<div class="input-group">
+						<input type="text" class="form-control" placeholder="Search for..." name="keyword">
+						<span class="input-group-btn">
+                        <input class="btn btn-round btn-success" type="submit" value="Go!">
+                      </span>
+					</div>
+				</div>
+			</form>
+
+
+
+				  <?=$pageHtml?>
+			  </div>
+		 <div class="clearfix"> </div>
+		</div>
+
+ <!-- //education -->
+ 
+ <!-- Portfolio -->
+	<div class="portfolio" id="portfolio">
+		<h3 data-aos="zoom-in" >Portfolio</h3>
+
+		<div class="tabs tabs-style-bar">
+			<nav>
+				<ul>
+					<li><a href="#section-bar-1" class="icon icon-box"><span>Web Design</span></a></li>
+					<li><a href="#section-bar-2" class="icon icon-display"><span>Mobile Apps</span></a></li>
+					<li><a href="#section-bar-3" class="icon icon-upload"><span>UI/UX Design</span></a></li>
+					<li><a href="#section-bar-4" class="icon icon-tools"><span>Graphic Design</span></a></li>
+				</ul>
+			</nav>
+
+			<div class="content-wrap">
+
+				<!-- Tab-1 -->
+				<section id="section-bar-1" class="agileits w3layouts">
+					<h4>Web Design</h4>
+					<div class="gallery-grids">
+						<div class="col-md-4 col-sm-4 gallery-top">
+							<a href="./Public/Home/SY/images/5.jpg" class="swipebox">
+								<figure class="effect-bubba">
+									<img src="./Public/Home/SY/images/5.jpg" alt="" class="img-responsive">
+									<figcaption>
+										<h4>Web Design</h4>
+									</figcaption>
+								</figure>
+							</a>
+						</div>
+						<div class="col-md-4 col-sm-4 gallery-top">
+							<a href="./Public/Home/SY/images/p4.jpg" class="swipebox">
+								<figure class="effect-bubba">
+									<img src="./Public/Home/SY/images/p4.jpg" alt="" class="img-responsive">
+									<figcaption>
+										<h4>Web Design</h4>
+									</figcaption>
+								</figure>
+							</a>
+						</div>
+						<div class="col-md-4 col-sm-4 gallery-top">
+							<a href="./Public/Home/SY/images/p5.jpg" class="swipebox">
+								<figure class="effect-bubba">
+									<img src="./Public/Home/SY/images/p5.jpg" alt="" class="img-responsive">
+									<figcaption>
+										<h4>Web Design</h4>
+									</figcaption>
+								</figure>
+							</a>
+						</div>
+
+						<div class="col-md-4 col-sm-4 gallery-top">
+							<a href="./Public/Home/SY/images/p6.jpg" class="swipebox">
+								<figure class="effect-bubba">
+									<img src="./Public/Home/SY/images/p6.jpg" alt="" class="img-responsive">
+									<figcaption>
+										<h4>Web Design</h4>
+									</figcaption>
+								</figure>
+							</a>
+						</div>
+
+						<div class="col-md-4 col-sm-4 gallery-top">
+							<a href="./Public/Home/SY/images/p7.jpg" class="swipebox">
+								<figure class="effect-bubba">
+									<img src="./Public/Home/SY/images/p7.jpg" alt="" class="img-responsive">
+									<figcaption>
+										<h4>Web Design</h4>
+									</figcaption>
+								</figure>
+							</a>
+						</div>
+						<div class="col-md-4 col-sm-4 gallery-top">
+							<a href="./Public/Home/SY/images/p8.jpg" class="swipebox">
+								<figure class="effect-bubba">
+									<img src="./Public/Home/SY/images/p8.jpg" alt="" class="img-responsive">
+									<figcaption>
+										<h4>Web Design</h4>
+									</figcaption>
+								</figure>
+							</a>
+						</div>
+						<div class="col-md-4 col-sm-4 gallery-top">
+							<a href="./Public/Home/SY/images/p9.jpg" class="swipebox">
+								<figure class="effect-bubba">
+									<img src="./Public/Home/SY/images/p9.jpg" alt="" class="img-responsive">
+									<figcaption>
+										<h4>Web Design</h4>
+									</figcaption>
+								</figure>
+							</a>
+						</div>
+						<div class="col-md-4 col-sm-4 gallery-top">
+							<a href="./Public/Home/SY/images/p10.jpg" class="swipebox">
+								<figure class="effect-bubba">
+									<img src="./Public/Home/SY/images/p10.jpg" alt="" class="img-responsive">
+									<figcaption>
+										<h4>Web Design</h4>
+									</figcaption>
+								</figure>
+							</a>
+						</div>
+						<div class="col-md-4 col-sm-4 gallery-top">
+							<a href="./Public/Home/SY/images/p11.jpg" class="swipebox">
+								<figure class="effect-bubba">
+									<img src="./Public/Home/SY/images/p11.jpg" alt="" class="img-responsive">
+									<figcaption>
+										<h4>Web Design</h4>
+									</figcaption>
+								</figure>
+							</a>
+						</div>
+						<div class="clearfix"></div>
+					</div>
+				</section>
+				<!-- //Tab-1 -->
+
+				<!-- Tab-2 -->
+				<section id="section-bar-2" class="agileits w3layouts">
+					<h4>Mobile Apps</h4>
+					<div class="gallery-grids">
+						<div class="col-md-4 col-sm-4 gallery-top">
+							<a href="./Public/Home/SY/images/p1.jpg" class="swipebox">
+								<figure class="effect-bubba">
+									<img src="./Public/Home/SY/images/p1.jpg" alt="" class="img-responsive">
+									<figcaption>
+										<h4>Mobile Apps</h4>
+									</figcaption>
+								</figure>
+							</a>
+						</div>
+						<div class="col-md-4 col-sm-4 gallery-top">
+							<a href="./Public/Home/SY/images/p2.jpg" class="swipebox">
+								<figure class="effect-bubba">
+									<img src="./Public/Home/SY/images/p2.jpg" alt="" class="img-responsive">
+									<figcaption>
+										<h4>Mobile Apps</h4>
+									</figcaption>
+								</figure>
+							</a>
+						</div>
+						<div class="col-md-4 col-sm-4 gallery-top">
+							<a href="./Public/Home/SY/images/p3.jpg" class="swipebox">
+								<figure class="effect-bubba">
+									<img src="./Public/Home/SY/images/p3.jpg" alt="" class="img-responsive">
+									<figcaption>
+										<h4>Mobile Apps</h4>
+									</figcaption>
+								</figure>
+							</a>
+						</div>
+						<div class="col-md-4 col-sm-4 gallery-top">
+							<a href="./Public/Home/SY/images/p12.jpg" class="swipebox">
+								<figure class="effect-bubba">
+									<img src="./Public/Home/SY/images/p12.jpg" alt="" class="img-responsive">
+									<figcaption>
+										<h4>Mobile Apps</h4>
+									</figcaption>
+								</figure>
+							</a>
+						</div>
+						<div class="col-md-4 col-sm-4 gallery-top">
+							<a href="./Public/Home/SY/images/p13.jpg" class="swipebox">
+								<figure class="effect-bubba">
+									<img src="./Public/Home/SY/images/p13.jpg" alt="" class="img-responsive">
+									<figcaption>
+										<h4>Mobile Apps</h4>
+									</figcaption>
+								</figure>
+							</a>
+						</div>
+						<div class="col-md-4 col-sm-4 gallery-top">
+							<a href="./Public/Home/SY/images/8.jpg" class="swipebox">
+								<figure class="effect-bubba">
+									<img src="./Public/Home/SY/images/8.jpg" alt="" class="img-responsive">
+									<figcaption>
+										<h4>Mobile Apps</h4>
+									</figcaption>
+								</figure>
+							</a>
+						</div>
+						<div class="col-md-4 col-sm-4 gallery-top">
+							<a href="./Public/Home/SY/images/9.jpg" class="swipebox">
+								<figure class="effect-bubba">
+									<img src="./Public/Home/SY/images/9.jpg" alt="" class="img-responsive">
+									<figcaption>
+										<h4>Mobile Apps</h4>
+									</figcaption>
+								</figure>
+							</a>
+						</div>
+						<div class="col-md-4 col-sm-4 gallery-top">
+							<a href="./Public/Home/SY/images/6.jpg" class="swipebox">
+								<figure class="effect-bubba">
+									<img src="./Public/Home/SY/images/6.jpg" alt="" class="img-responsive">
+									<figcaption>
+										<h4>Mobile Apps</h4>
+									</figcaption>
+								</figure>
+							</a>
+						</div>
+						<div class="col-md-4 col-sm-4 gallery-top">
+							<a href="./Public/Home/SY/images/7.jpg" class="swipebox">
+								<figure class="effect-bubba">
+									<img src="./Public/Home/SY/images/7.jpg" alt="" class="img-responsive">
+									<figcaption>
+										<h4>Mobile Apps</h4>
+									</figcaption>
+								</figure>
+							</a>
+						</div>
+						<div class="clearfix"></div>
+					</div>
+				</section>
+				<!-- //Tab-2 -->
+
+				<!-- Tab-3 -->
+				<section id="section-bar-3" class="agileits w3layouts">
+					<h4>UI/UX Design</h4>
+					<div class="gallery-grids">
+						<div class="col-md-4 col-sm-4 gallery-top">
+							<a href="./Public/Home/SY/images/p1.jpg" class="swipebox">
+								<figure class="effect-bubba">
+									<img src="./Public/Home/SY/images/p1.jpg" alt="" class="img-responsive">
+									<figcaption>
+										<h4>UI/UX Design</h4>
+									</figcaption>
+								</figure>
+							</a>
+						</div>
+						<div class="col-md-4 col-sm-4 gallery-top">
+							<a href="./Public/Home/SY/images/p2.jpg" class="swipebox">
+								<figure class="effect-bubba">
+									<img src="./Public/Home/SY/images/p2.jpg" alt="" class="img-responsive">
+									<figcaption>
+										<h4>UI/UX Design</h4>
+									</figcaption>
+								</figure>
+							</a>
+						</div>
+						<div class="col-md-4 col-sm-4 gallery-top">
+							<a href="./Public/Home/SY/images/p3.jpg" class="swipebox">
+								<figure class="effect-bubba">
+									<img src="./Public/Home/SY/images/p3.jpg" alt="" class="img-responsive">
+									<figcaption>
+										<h4>UI/UX Design</h4>
+									</figcaption>
+								</figure>
+							</a>
+						</div>
+						<div class="col-md-4 col-sm-4 gallery-top">
+							<a href="./Public/Home/SY/images/p4.jpg" class="swipebox">
+								<figure class="effect-bubba">
+									<img src="./Public/Home/SY/images/p4.jpg" alt="" class="img-responsive">
+									<figcaption>
+										<h4>UI/UX Design</h4>
+									</figcaption>
+								</figure>
+							</a>
+						</div>
+						<div class="col-md-4 col-sm-4 gallery-top">
+							<a href="./Public/Home/SY/images/p5.jpg" class="swipebox">
+								<figure class="effect-bubba">
+									<img src="./Public/Home/SY/images/p5.jpg" alt="" class="img-responsive">
+									<figcaption>
+										<h4>UI/UX Design</h4>
+									</figcaption>
+								</figure>
+							</a>
+						</div>
+						<div class="col-md-4 col-sm-4 gallery-top">
+								<a href="./Public/Home/SY/images/p6.jpg" class="swipebox">
+									<figure class="effect-bubba">
+										<img src="./Public/Home/SY/images/p6.jpg" alt="" class="img-responsive">
+										<figcaption>
+										<h4>UI/UX Design</h4>
+										</figcaption>
+									</figure>
+								</a>
+						</div>
+						<div class="col-md-4 col-sm-4 gallery-top">
+							<a href="./Public/Home/SY/images/p7.jpg" class="swipebox">
+								<figure class="effect-bubba">
+									<img src="./Public/Home/SY/images/p7.jpg" alt="" class="img-responsive">
+									<figcaption>
+										<h4>UI/UX Design</h4>
+									</figcaption>
+								</figure>
+							</a>
+						</div>
+						<div class="col-md-4 col-sm-4 gallery-top">
+							<a href="./Public/Home/SY/images/p8.jpg" class="swipebox">
+								<figure class="effect-bubba">
+									<img src="./Public/Home/SY/images/p8.jpg" alt="" class="img-responsive">
+									<figcaption>
+										<h4>UI/UX Design</h4>
+									</figcaption>
+								</figure>
+							</a>
+						</div>
+						<div class="col-md-4 col-sm-4 gallery-top">
+							<a href="./Public/Home/SY/images/p9.jpg" class="swipebox">
+								<figure class="effect-bubba">
+									<img src="./Public/Home/SY/images/p9.jpg" alt="" class="img-responsive">
+									<figcaption>
+										<h4>UI/UX Design</h4>
+									</figcaption>
+								</figure>
+							</a>
+						</div>
+						<div class="clearfix"></div>
+					</div>
+				</section>
+				<!-- //Tab-3 -->
+
+				<!-- Tab-4 -->
+				<section id="section-bar-4" class="agileits w3layouts">
+					<h4>Graphic Design</h4>
+					<div class="gallery-grids">
+						<div class="col-md-4 col-sm-4 gallery-top">
+							<a href="./Public/Home/SY/images/p10.jpg" class="swipebox">
+								<figure class="effect-bubba">
+									<img src="./Public/Home/SY/images/p10.jpg" alt="" class="img-responsive">
+									<figcaption>
+										<h4>Graphic Design</h4>
+									</figcaption>
+								</figure>
+							</a>
+						</div>
+						<div class="col-md-4 col-sm-4 gallery-top">
+							<a href="./Public/Home/SY/images/p11.jpg" class="swipebox">
+								<figure class="effect-bubba">
+									<img src="./Public/Home/SY/images/p11.jpg" alt="" class="img-responsive">
+									<figcaption>
+										<h4>Graphic Design</h4>
+									</figcaption>
+								</figure>
+							</a>
+						</div>
+						<div class="col-md-4 col-sm-4 gallery-top">
+							<a href="./Public/Home/SY/images/p12.jpg" class="swipebox">
+								<figure class="effect-bubba">
+									<img src="./Public/Home/SY/images/p12.jpg" alt="" class="img-responsive">
+									<figcaption>
+										<h4>Graphic Design</h4>
+									</figcaption>
+								</figure>
+							</a>
+						</div>
+						<div class="col-md-4 col-sm-4 gallery-top">
+							<a href="./Public/Home/SY/images/p13.jpg" class="swipebox">
+								<figure class="effect-bubba">
+									<img src="./Public/Home/SY/images/p13.jpg" alt="" class="img-responsive">
+									<figcaption>
+										<h4>Graphic Design</h4>
+									</figcaption>
+								</figure>
+							</a>
+						</div>
+						<div class="col-md-4 col-sm-4 gallery-top">
+							<a href="./Public/Home/SY/images/p5.jpg" class="swipebox">
+								<figure class="effect-bubba">
+									<img src="./Public/Home/SY/images/p5.jpg" alt="" class="img-responsive">
+									<figcaption>
+										<h4>Graphic Design</h4>
+									</figcaption>
+								</figure>
+							</a>
+						</div>
+						<div class="col-md-4 col-sm-4 gallery-top">
+							<a href="./Public/Home/SY/images/p6.jpg" class="swipebox">
+								<figure class="effect-bubba">
+									<img src="./Public/Home/SY/images/p6.jpg" alt="" class="img-responsive">
+									<figcaption>
+										<h4>Graphic Design</h4>
+									</figcaption>
+								</figure>
+							</a>
+						</div>
+						<div class="col-md-4 col-sm-4 gallery-top">
+							<a href="./Public/Home/SY/images/p7.jpg" class="swipebox">
+								<figure class="effect-bubba">
+									<img src="./Public/Home/SY/images/p7.jpg" alt="" class="img-responsive">
+									<figcaption>
+										<h4>Graphic Design</h4>
+									</figcaption>
+								</figure>
+							</a>
+						</div>
+						<div class="col-md-4 col-sm-4 gallery-top">
+							<a href="./Public/Home/SY/images/p8.jpg" class="swipebox">
+								<figure class="effect-bubba">
+									<img src="./Public/Home/SY/images/p8.jpg" alt="" class="img-responsive">
+									<figcaption>
+										<h4>Graphic Design</h4>
+									</figcaption>
+								</figure>
+							</a>
+						</div>
+						<div class="col-md-4 col-sm-4 gallery-top">
+							<a href="./Public/Home/SY/images/p9.jpg" class="swipebox">
+								<figure class="effect-bubba">
+									<img src="./Public/Home/SY/images/p9.jpg" alt="" class="img-responsive">
+									<figcaption>
+										<h4>Graphic Design</h4>
+									</figcaption>
+								</figure>
+							</a>
+						</div>
+						<div class="clearfix"></div>
+					</div>
+				</section>
+				<!-- //Tab-4 -->
+				
+			</div><!-- //Content -->
+		</div><!-- //Tabs -->
+</div>
+<!-- //Portfolio -->
+
+<!-- contact -->
+<div class="contact" id="contact">
+	<div class="container">
+		<div class="col-md-6 contact-left">
+			<h3 data-aos="zoom-in" >contact me</h3>
+				<p>Lorem ipsum primis in faucibus. Praesent faucibus massa elit, vitae ultrices libero dapibus nec. 
+					Maecenas cursus rutrum odio ut convallis. Curabitur viverra est in diam tincidunt, nec tincidunt tortor dapibus.</p>
+			<form action="#" method="post">
+					<div class="col-md-6 agileits_agile_about_mail_left">
+						<input type="text" name="Name" placeholder="Name" required="">
+						<input type="text" name="Subject" placeholder="Company Name" required="">
+					</div>
+					<div class="col-md-6 agileits_agile_about_mail_left">
+						<input type="email" name="Email" placeholder="Email" required="">
+						<input type="text" name="Phone" placeholder="Phone" required="">
+					</div>
+				<div class="clearfix"> </div>
+				<textarea name="Message" placeholder="Message..." required=""></textarea>
+				<input type="submit" value="Submit">
+			</form>
+		</div>
+		<div class="col-md-6 contact-right">
+			<div data-aos="flip-down" class="col-md-6 contactright1">
+			<span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
+			<h4>Location</h4>
+			<p>1680 Richmond St, London, ON N6G 3Y9, Canada</p>
+			</div>
+			<div data-aos="flip-down" class="col-md-6 contactright1">
+			<span class="glyphicon glyphicon-phone" aria-hidden="true"></span>
+			<h4>Phone</h4>
+			<p>+0(12) 000 123 3120</p>
+			<p>+0(12) 000 123 3121</p>
+			</div>
+			<div class="clearfix"></div>
+			<div data-aos="flip-up"class="col-md-6 contactright1">
+			<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+			<h4>Support</h4>
+			<p><a href="mailto:info@example.com">info@support.com</a></p>
+			</div>
+			<div data-aos="flip-up" class="col-md-6 contactright1">
+			<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+			<h4>Mail</h4>
+			<p><a href="mailto:info@example.com">info@example.com</a></p>
+			<p><a href="mailto:info@example.com">info@example1.com</a></p>
+			</div>
+			<div class="clearfix"></div>
+			<ul class="top-links">
+				<li data-aos="flip-right"><a href="#"><i class="fa fa-facebook"></i></a></li>
+				<li data-aos="flip-right"><a href="#"><i class="fa fa-twitter"></i></a></li>
+				<li data-aos="flip-right"><a href="#"><i class="fa fa-google-plus"></i></a></li>
+				<li data-aos="flip-right"><a href="#"><i class="fa fa-linkedin"></i></a></li>
+			</ul>
+		</div>
+		<div class="clearfix"></div>
+	</div>
+</div>
+<!-- //contact -->
+
+<!-- map -->
+<!---<div class="map">
+	<h3 data-aos="zoom-in" >Locate Me</h3>
+	<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2916.728658933401!2d-81.28171468446989!3d43.026098179147766!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882eee436c9b672f%3A0xbb99862bef7c6ace!2s1680+Richmond+St%2C+London%2C+ON+N6G+3Y9%2C+Canada!5e0!3m2!1sen!2sin!4v1496125001525"></iframe>
+</div>--->
+<!-- //map -->
+
+<!-- copyright -->
+<div class="copyright-agile">
+	<div class="container">
+		<h4> My Design</h4>
+		<p>Copyright &copy; 2017.Company name All rights reserved.<a target="_blank" href="http://sc.chinaz.com/moban/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a></p>
+		<div class="clearfix"></div>
+	</div>
+</div>
+<!-- copyright -->
+
+<!-- js -->
+<script type="text/javascript" src="./Public/Home/SY/js/jquery-2.1.4.min.js"></script>
+<!-- for bootstrap working -->
+	<script src="./Public/Home/SY/js/bootstrap.js"></script>
+<!-- //for bootstrap working -->
+<!-- //js -->
+
+<!-- Gallery-Tab-JavaScript -->
+			<script src="./Public/Home/SY/js/cbpFWTabs.js"></script>
+			<script>
+				(function() {
+					[].slice.call( document.querySelectorAll( '.tabs' ) ).forEach( function( el ) {
+						new CBPFWTabs( el );
+					});
+				})();
+			</script>
+<!-- //Gallery-Tab-JavaScript -->
+	<!-- Swipe-Box-JavaScript -->
+			<script src="./Public/Home/SY/js/jquery.swipebox.min.js"></script>
+				<script type="text/javascript">
+					jQuery(function($) {
+						$(".swipebox").swipebox();
+					});
+			</script>
+		<!-- //Swipe-Box-JavaScript -->
+
+<!-- Scrolling Nav JavaScript --> 
+    <script src="./Public/Home/SY/js/scrolling-nav.js"></script>
+<!-- //fixed-scroll-nav-js --> 
+
+<script src="./Public/Home/SY/js/index.js"></script><!-- skills bars JS FILE-->
+	
+<!-- animation effects-js files-->
+	<script src="./Public/Home/SY/js/aos.js"></script><!-- //animation effects-js-->
+	<script src="./Public/Home/SY/js/aos1.js"></script><!-- //animation effects-js-->
+<!-- animation effects-js files-->
+
+<!-- //here starts scrolling icon -->
+<script src="./Public/Home/SY/js/SmoothScroll.min.js"></script>
+	<script type="text/javascript" src="./Public/Home/SY/js/move-top.js"></script>
+	<script type="text/javascript" src="./Public/Home/SY/js/easing.js"></script>
+	<!-- here stars scrolling script -->
+	<script type="text/javascript">
+		$(document).ready(function() {
+			/*
+				var defaults = {
+				containerID: 'toTop', // fading element id
+				containerHoverID: 'toTopHover', // fading element hover id
+				scrollSpeed: 1200,
+				easingType: 'linear' 
+				};
+			*/
+								
+			$().UItoTop({ easingType: 'easeOutQuart' });
+								
+			});
+	</script>
+	<!-- //here ends scrolling script -->
+<!-- //here ends scrolling icon -->
+
+<!-- scrolling script -->
+<script type="text/javascript">
+	jQuery(document).ready(function($) {
+		$(".scroll").click(function(event){		
+			event.preventDefault();
+			$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+		});
+	});
+</script> 
+<!-- //scrolling script -->
+
+</body>
+</html>

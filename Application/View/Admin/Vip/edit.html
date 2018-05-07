@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>后台管理系统  </title>
+
+    <!-- Bootstrap -->
+    <link href="./Public/Admin/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="./Public/Admin/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="./Public/Admin/nprogress/nprogress.css" rel="stylesheet">
+    <!-- bootstrap-progressbar -->
+    <link href="./Public/Admin/vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
+    <!-- bootstrap-daterangepicker -->
+    <link href="./Public/Admin/vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+    
+    <!-- Custom Theme Style -->
+    <link href="./Public/Admin/build/css/custom.min.css" rel="stylesheet">
+  </head>
+
+  <body class="nav-md">
+    <div class="container body">
+      <div class="main_container">
+
+        <div class="col-md-3 left_col">
+          <div class="left_col scroll-view">
+            <div class="navbar nav_title" style="border: 0;">
+              <a href="index.php?p=Admin&c=Index&a=index" class="site_title"><i class="fa fa-paper-plane"></i> <span>后台管理系统</span></a>
+            </div>
+
+            <div class="clearfix"></div>
+
+            <!-- menu profile quick info -->
+            <div class="profile clearfix">
+              <div class="profile_pic">
+                <img src="<?=$info['photo']?>" alt="" class="img-circle profile_img">
+              </div>
+              <div class="profile_info">
+                <span>Welcome</span>
+                <h2><?=$info['realname']?></h2>
+              </div>
+            </div>
+            <!-- /menu profile quick info -->
+            <br />
+            <!-- sidebar menu -->
+            <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+
+              <div class="menu_section">
+                <h3>General</h3>
+                <ul class="nav side-menu">
+                  <li><a><i class="fa fa-home"></i> 管理员管理 <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="index.php?p=Admin&c=Member&a=index">管理员列表</a></li>
+                    </ul>
+                  </li>
+                  <li><a><i class="fa fa-edit"></i> 会员管理 <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="index.php?p=Admin&c=User&a=index">会员列表</a></li>
+                      <li><a href="index.php?p=Admin&c=Vip&a=index">vip列表</a></li>
+                      <li><a href="index.php?p=Admin&c=Rule&a=index">充值优惠列表</a></li>
+                    </ul>
+                  </li>
+                  <li><a><i class="fa fa-desktop"></i> 活动管理 <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="index.php?p=Admin&c=Activity&a=index">活动列表</a></li>
+                    </ul>
+                  </li>
+                  <li><a><i class="fa fa-table"></i> 部门管理 <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="index.php?p=Admin&c=Group&a=index">部门列表</a></li>
+                    </ul>
+                  </li>
+                  <li><a><i class="fa fa-bar-chart-o"></i> 日志管理 <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="index.php?p=Admin&c=Log&a=index">日志列表</a></li>
+                    </ul>
+                  </li>
+                  <li><a><i class="fa fa-clone"></i>预约订单管理 <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="index.php?p=Admin&c=Order&a=index">预约订单列表</a></li>
+                    </ul>
+                  </li>
+                  <li><a><i class="fa fa-table"></i> 套餐管理 <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="index.php?p=Admin&c=Plans&a=index">套餐列表</a></li>
+                    </ul>
+                  </li>
+                  <li><a><i class="fa fa-edit"></i> 代金券管理 <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="index.php?p=Admin&c=Code&a=index">代金券列表</a></li>
+                    </ul>
+                  </li>
+
+                  <li><a><i class="fa fa-yahoo"></i> 积分商城 <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="index.php?p=Admin&c=Shop&a=index">商品列表</a></li>
+                      <li><a href="index.php?p=Admin&c=OrderForm&a=index">订单列表</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <!-- /sidebar menu -->
+
+          </div>
+        </div>
+
+        <!-- top navigation -->
+        <div class="top_nav">
+          <div class="nav_menu">
+            <nav>
+              <div class="nav toggle">
+                <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+              </div>
+
+              <ul class="nav navbar-nav navbar-right">
+                <li class="">
+                  <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                    <?=$info['realname']?>
+                    <span class=" fa fa-angle-down"></span>
+                  </a>
+                  <ul class="dropdown-menu dropdown-usermenu pull-right">
+                    <li><a href="index.php?p=Admin&c=Index&a=profile">个人信息</a></li>
+                    <li><a href="index.php?p=Admin&c=Login&a=logout"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
+                  </ul>
+                </li>
+
+              </ul>            </nav>
+          </div>
+        </div>
+        <!-- /top navigation -->
+
+        <!-- page content -->
+        <div class="right_col" role="main">
+          <div class="">
+            <div class="x_panel">
+              <div class="x_title">
+                <h2>添加会员规则 <small>Membership Rules</small></h2>
+                <ul class="nav navbar-right panel_toolbox"></ul>
+                <div class="clearfix"></div>
+              </div>
+              <div class="x_content">
+
+<!--添加表单-->
+
+                <form class="form-horizontal form-label-left" novalidate="" action="index.php?p=Admin&c=Vip&a=edit" method="post" enctype="multipart/form-data">
+                  <input type="hidden" value="<?=$vip_id?>" name="vip_id">
+                  <div class="item form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">vip等级 <span class="required"></span>
+                    </label>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                      <input disabled="disabled" value="<?=$rating?>" id="name" class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="2" name="rating"  required="required" type="text">
+                    </div>
+                  </div>
+                  <div class="item form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">折扣 <span class="required"></span>
+                    </label>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                      <input value="<?=$discount?>" id="name" class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="2" name="discount"  required="required" type="text">
+                    </div>
+                  </div>
+                  <div class="item form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">达成条件 <span class="required"></span>
+                    </label>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                      <input value="<?=$condition?>" id="name" class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="2" name="condition"  required="required" type="text">
+                    </div>
+                  </div>
+                  <div class="ln_solid"></div>
+                  <div class="form-group">
+                    <div class="col-md-6 col-md-offset-3">
+                      <input id="send" type="submit" class="btn btn-success" value="修改">
+                      <a href="index.php?p=Admin&c=Vip&a=index" class="btn btn-success">返回</a>
+                    </div>
+                  </div>
+                </form>
+
+              </div>
+            </div>
+            <br />
+          </div>
+        </div>
+        <!-- /page content -->
+
+        <!-- footer content -->
+        <footer>
+          <div class="pull-right">
+            Gentelella - Bootstrap Admin Template by Colorlib. More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a>
+          </div>
+          <div class="clearfix"></div>
+        </footer>
+        <!-- /footer content -->
+      </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="./Public/Admin/vendors/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="./Public/Admin/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- FastClick -->
+    <script src="./Public/Admin/vendors/fastclick/lib/fastclick.js"></script>
+    <!-- NProgress -->
+    <script src="./Public/Admin/vendors/nprogress/nprogress.js"></script>
+    <!-- Chart.js -->
+    <script src="./Public/Admin/vendors/Chart.js/dist/Chart.min.js"></script>
+    <!-- jQuery Sparklines -->
+    <script src="./Public/Admin/vendors/jquery-sparkline/dist/jquery.sparkline.min.js"></script>
+    <!-- morris.js -->
+    <script src="./Public/Admin/vendors/raphael/raphael.min.js"></script>
+    <script src="./Public/Admin/vendors/morris.js/morris.min.js"></script>
+    <!-- gauge.js -->
+    <script src="./Public/Admin/vendors/gauge.js/dist/gauge.min.js"></script>
+    <!-- bootstrap-progressbar -->
+    <script src="./Public/Admin/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+    <!-- Skycons -->
+    <script src="./Public/Admin/vendors/skycons/skycons.js"></script>
+    <!-- Flot -->
+    <script src="./Public/Admin/vendors/Flot/jquery.flot.js"></script>
+    <script src="./Public/Admin/vendors/Flot/jquery.flot.pie.js"></script>
+    <script src="./Public/Admin/vendors/Flot/jquery.flot.time.js"></script>
+    <script src="./Public/Admin/vendors/Flot/jquery.flot.stack.js"></script>
+    <script src="./Public/Admin/vendors/Flot/jquery.flot.resize.js"></script>
+    <!-- Flot plugins -->
+    <script src="./Public/Admin/vendors/flot.orderbars/js/jquery.flot.orderBars.js"></script>
+    <script src="./Public/Admin/vendors/flot-spline/js/jquery.flot.spline.min.js"></script>
+    <script src="./Public/Admin/vendors/flot.curvedlines/curvedLines.js"></script>
+    <!-- DateJS -->
+    <script src="./Public/Admin/vendors/DateJS/build/date.js"></script>
+    <!-- bootstrap-daterangepicker -->
+    <script src="./Public/Admin/vendors/moment/min/moment.min.js"></script>
+    <script src="./Public/Admin/vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
+
+    <!-- Custom Theme Scripts -->
+    <script src="./Public/Admin/build/js/custom.min.js"></script>
+
+  </body>
+</html>
