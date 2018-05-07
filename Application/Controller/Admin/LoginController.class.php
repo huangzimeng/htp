@@ -24,7 +24,7 @@ class LoginController extends Controller
         if ($result === false) {
             $this->redirect("index.php?p=Admin&c=Login&a=index", $memberModel->getError(), 2);
         }
-        $this->redirect("index.php?p=Admin&a=Index&c=index", '登陆成功', 2);
+        $this->redirect("index.php?p=Admin&c=Index&a=index", '登陆成功', 2);
     }
 
     //退出
